@@ -14,13 +14,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func createObjects() {
+        
+        for i in 0..<10 {
+            var a = ASelectableMO(managedObjectContext: self.managedObjectContext)
+            a.aname = "A Name \(i)"
+        }
+        
+        for i in 0..<10 {
+            var b = BSelectableMO(managedObjectContext: self.managedObjectContext)
+            b.bname = "B Name \(i)"
+        }
+        
+        for i in 0..<10 {
+            var c = CSelectableMO(managedObjectContext: self.managedObjectContext)
+            c.cname = "C Name \(i)"
+        }
+        
+        self.managedObjectContext!.save(nil)
+    }
+    
+    func hasObjects() -> Bool {
+        var fetchRequest = NSFetchRequest(entityName: ASelectableMO.entityName())
+        
+        var results = self.managedObjectContext!.executeFetchRequest(fetchRequest, error:nil)
+        
+        if results != nil {
+            return (results!.count > 0)
+        }
+        
+        return false
+    }
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        println(self.applicationSupportDirectory())
+        
+        if !self.hasObjects() {
+            self.createObjects()
+        }
+        
         // Override point for customization after application launch.
         let navigationController = self.window!.rootViewController as UINavigationController
-        let controller = navigationController.topViewController as MasterViewController
+        let controller = navigationController.topViewController as SelectableSelectorTableViewController
         controller.managedObjectContext = self.managedObjectContext
         return true
+    }
+    
+    func applicationSupportDirectory() -> NSURL {
+        let urls = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
+        let applicationSupportUrl = urls[urls.endIndex-1] as NSURL
+        
+        return applicationSupportUrl
     }
 
     func applicationWillResignActive(application: UIApplication) {

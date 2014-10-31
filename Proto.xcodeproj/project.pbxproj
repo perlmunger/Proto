@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3CA3AF219FAFE6C00581FCC /* _ASelectableMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AEC19FAFE6C00581FCC /* _ASelectableMO.swift */; };
+		B3CA3AF319FAFE6C00581FCC /* _BSelectableMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AED19FAFE6C00581FCC /* _BSelectableMO.swift */; };
+		B3CA3AF419FAFE6C00581FCC /* _CSelectableMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AEE19FAFE6C00581FCC /* _CSelectableMO.swift */; };
+		B3CA3AF519FAFE6C00581FCC /* ASelectableMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AEF19FAFE6C00581FCC /* ASelectableMO.swift */; };
+		B3CA3AF619FAFE6C00581FCC /* BSelectableMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AF019FAFE6C00581FCC /* BSelectableMO.swift */; };
+		B3CA3AF719FAFE6C00581FCC /* CSelectableMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AF119FAFE6C00581FCC /* CSelectableMO.swift */; };
+		B3CA3AF919FAFEBC00581FCC /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AF819FAFEBC00581FCC /* Selectable.swift */; };
+		B3CA3AFD19FB02D600581FCC /* SelectableSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA3AFC19FB02D600581FCC /* SelectableSelectorTableViewController.swift */; };
 		B3CF12F219FAFD3200DFEE42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CF12F119FAFD3200DFEE42 /* AppDelegate.swift */; };
 		B3CF12F519FAFD3200DFEE42 /* Proto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3CF12F319FAFD3200DFEE42 /* Proto.xcdatamodeld */; };
 		B3CF12F719FAFD3200DFEE42 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CF12F619FAFD3200DFEE42 /* MasterViewController.swift */; };
@@ -28,6 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3CA3AEC19FAFE6C00581FCC /* _ASelectableMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ASelectableMO.swift; sourceTree = "<group>"; };
+		B3CA3AED19FAFE6C00581FCC /* _BSelectableMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _BSelectableMO.swift; sourceTree = "<group>"; };
+		B3CA3AEE19FAFE6C00581FCC /* _CSelectableMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CSelectableMO.swift; sourceTree = "<group>"; };
+		B3CA3AEF19FAFE6C00581FCC /* ASelectableMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASelectableMO.swift; sourceTree = "<group>"; };
+		B3CA3AF019FAFE6C00581FCC /* BSelectableMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSelectableMO.swift; sourceTree = "<group>"; };
+		B3CA3AF119FAFE6C00581FCC /* CSelectableMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSelectableMO.swift; sourceTree = "<group>"; };
+		B3CA3AF819FAFEBC00581FCC /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		B3CA3AFC19FB02D600581FCC /* SelectableSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableSelectorTableViewController.swift; sourceTree = "<group>"; };
 		B3CF12EC19FAFD3200DFEE42 /* Proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CF12F019FAFD3200DFEE42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3CF12F119FAFD3200DFEE42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +76,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3CA3AEB19FAFE6C00581FCC /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B3CA3AEC19FAFE6C00581FCC /* _ASelectableMO.swift */,
+				B3CA3AED19FAFE6C00581FCC /* _BSelectableMO.swift */,
+				B3CA3AEE19FAFE6C00581FCC /* _CSelectableMO.swift */,
+				B3CA3AEF19FAFE6C00581FCC /* ASelectableMO.swift */,
+				B3CA3AF019FAFE6C00581FCC /* BSelectableMO.swift */,
+				B3CA3AF119FAFE6C00581FCC /* CSelectableMO.swift */,
+			);
+			path = ModelObjects;
+			sourceTree = "<group>";
+		};
 		B3CF12E319FAFD3100DFEE42 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +110,7 @@
 		B3CF12EE19FAFD3200DFEE42 /* Proto */ = {
 			isa = PBXGroup;
 			children = (
+				B3CA3AEB19FAFE6C00581FCC /* ModelObjects */,
 				B3CF12F119FAFD3200DFEE42 /* AppDelegate.swift */,
 				B3CF12F619FAFD3200DFEE42 /* MasterViewController.swift */,
 				B3CF12F819FAFD3200DFEE42 /* DetailViewController.swift */,
@@ -89,6 +119,8 @@
 				B3CF12FF19FAFD3200DFEE42 /* LaunchScreen.xib */,
 				B3CF12F319FAFD3200DFEE42 /* Proto.xcdatamodeld */,
 				B3CF12EF19FAFD3200DFEE42 /* Supporting Files */,
+				B3CA3AF819FAFEBC00581FCC /* Selectable.swift */,
+				B3CA3AFC19FB02D600581FCC /* SelectableSelectorTableViewController.swift */,
 			);
 			path = Proto;
 			sourceTree = "<group>";
@@ -125,9 +157,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3CF131019FAFD3200DFEE42 /* Build configuration list for PBXNativeTarget "Proto" */;
 			buildPhases = (
+				B3CF131619FAFDCF00DFEE42 /* Generate Model Objects */,
 				B3CF12E819FAFD3200DFEE42 /* Sources */,
-				B3CF12E919FAFD3200DFEE42 /* Frameworks */,
 				B3CF12EA19FAFD3200DFEE42 /* Resources */,
+				B3CF12E919FAFD3200DFEE42 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,15 +246,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B3CF131619FAFDCF00DFEE42 /* Generate Model Objects */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Model Objects";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/Proto\" && /usr/local/bin/mogenerator --swift -m Proto.xcdatamodeld/Proto.xcdatamodel  --output-dir ./ModelObjects";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B3CF12E819FAFD3200DFEE42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B3CF12F519FAFD3200DFEE42 /* Proto.xcdatamodeld in Sources */,
+				B3CA3AF919FAFEBC00581FCC /* Selectable.swift in Sources */,
+				B3CA3AF719FAFE6C00581FCC /* CSelectableMO.swift in Sources */,
 				B3CF12F219FAFD3200DFEE42 /* AppDelegate.swift in Sources */,
+				B3CA3AF619FAFE6C00581FCC /* BSelectableMO.swift in Sources */,
+				B3CA3AF219FAFE6C00581FCC /* _ASelectableMO.swift in Sources */,
+				B3CA3AFD19FB02D600581FCC /* SelectableSelectorTableViewController.swift in Sources */,
 				B3CF12F719FAFD3200DFEE42 /* MasterViewController.swift in Sources */,
+				B3CA3AF419FAFE6C00581FCC /* _CSelectableMO.swift in Sources */,
+				B3CA3AF319FAFE6C00581FCC /* _BSelectableMO.swift in Sources */,
 				B3CF12F919FAFD3200DFEE42 /* DetailViewController.swift in Sources */,
+				B3CA3AF519FAFE6C00581FCC /* ASelectableMO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +471,7 @@
 				B3CF131219FAFD3200DFEE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3CF131319FAFD3200DFEE42 /* Build configuration list for PBXNativeTarget "ProtoTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +480,7 @@
 				B3CF131519FAFD3200DFEE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
