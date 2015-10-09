@@ -17,27 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func createObjects() {
         
         for i in 0..<10 {
-            var a = ASelectableMO(managedObjectContext: self.managedObjectContext)
+            let a = ASelectableMO(managedObjectContext: self.managedObjectContext)
             a.aname = "A Name \(i)"
         }
         
         for i in 0..<10 {
-            var b = BSelectableMO(managedObjectContext: self.managedObjectContext)
+            let b = BSelectableMO(managedObjectContext: self.managedObjectContext)
             b.bname = "B Name \(i)"
         }
         
         for i in 0..<10 {
-            var c = CSelectableMO(managedObjectContext: self.managedObjectContext)
+            let c = CSelectableMO(managedObjectContext: self.managedObjectContext)
             c.cname = "C Name \(i)"
         }
         
-        self.managedObjectContext!.save(nil)
+        do {
+            try self.managedObjectContext!.save()
+        } catch _ {
+        }
     }
     
     func hasObjects() -> Bool {
-        var fetchRequest = NSFetchRequest(entityName: ASelectableMO.entityName())
+        let fetchRequest = NSFetchRequest(entityName: ASelectableMO.entityName())
         
-        var results = self.managedObjectContext!.executeFetchRequest(fetchRequest, error:nil)
+        let results = try? self.managedObjectContext!.executeFetchRequest(fetchRequest)
         
         if results != nil {
             return (results!.count > 0)
@@ -49,15 +52,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        println(self.applicationSupportDirectory())
+        print(self.applicationSupportDirectory())
         
         if !self.hasObjects() {
             self.createObjects()
         }
         
         // Override point for customization after application launch.
-        let navigationController = self.window!.rootViewController as UINavigationController
-        let controller = navigationController.topViewController as SelectableSelectorTableViewController
+        let navigationController = self.window!.rootViewController as! UINavigationController
+        let controller = navigationController.topViewController as! SelectableSelectorTableViewController
         controller.managedObjectContext = self.managedObjectContext
         return true
     }
@@ -114,18 +117,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Proto.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             let dict = NSMutableDictionary()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -147,11 +154,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }

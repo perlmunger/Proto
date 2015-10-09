@@ -1,3 +1,5 @@
+import Foundation
+
 @objc(CSelectableMO)
 class CSelectableMO: _CSelectableMO, Selectable {
 

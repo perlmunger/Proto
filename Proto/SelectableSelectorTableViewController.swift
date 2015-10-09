@@ -22,7 +22,7 @@ class SelectableSelectorTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        var destinationViewController = segue.destinationViewController as MasterViewController
+        let destinationViewController = segue.destinationViewController as! MasterViewController
         
         var entityName = ""
         
@@ -34,12 +34,12 @@ class SelectableSelectorTableViewController: UITableViewController {
             entityName = CSelectableMO.entityName()
         }
         
-        var fetchRequest = NSFetchRequest(entityName: entityName)
+        let fetchRequest = NSFetchRequest(entityName: entityName)
         
-        var results = self.managedObjectContext!.executeFetchRequest(fetchRequest, error:nil)
+        let results = try? self.managedObjectContext!.executeFetchRequest(fetchRequest)
         
         if results != nil {
-            destinationViewController.selectables = results! as [Selectable]
+            destinationViewController.selectables = results! as! [Selectable]
         }
     }
 }

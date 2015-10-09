@@ -22,16 +22,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectables.sort({ $0.displayName < $1.displayName })
+        selectables.sortInPlace({ $0.displayName < $1.displayName })
     }
 
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
             let object = self.selectables[indexPath.row] as Selectable
-            (segue.destinationViewController as DetailViewController).detailItem = object
+            (segue.destinationViewController as! DetailViewController).detailItem = object
             }
         }
     }
@@ -50,7 +50,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.selectables[indexPath.row] as Selectable
-        cell.textLabel.text = object.displayName
+        cell.textLabel!.text = object.displayName
     }
 
 }
